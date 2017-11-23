@@ -1,5 +1,6 @@
-var bandodenoob = "";Q
+var bandodenoob = "";
 var nremover = ["10573"];
+TWMap.resize(20,365*99);
 $.each(TWMap.players,function(index,value){
 var noob = String(value.newbie);
 if(noob.indexOf("hoje") != -1){
