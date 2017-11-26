@@ -27,12 +27,13 @@ $(document).ready(function(){
         $(this).addClass("tr"+i);
         name = $(this).find("td").eq(0).find("a").text();
         var split = name.split(" ");
+		
+        if($(this).hasClass("selected")){
+                $(this).find(".m"+i).load("/game.php?screen=ranking&mode=in_a_day&type=loot_res&name="+name+" #in_a_day_ranking_table .lit td:eq(3)");
+		}else{
         if(split.length == 1){
             $(this).find(".m"+i).load("/game.php?screen=ranking&mode=in_a_day&type=loot_res&name="+name+" #in_a_day_ranking_table .lit2 td:eq(3)");
         }else{
-            if($(this).hasClass("selected")){
-                $(this).find(".m"+i).load("/game.php?screen=ranking&mode=in_a_day&type=loot_res&name="+split[0]+"+"+split[1]+" #in_a_day_ranking_table .lit td:eq(3)");
-            }else{
                 $(this).find(".m"+i).load("/game.php?screen=ranking&mode=in_a_day&type=loot_res&name="+split[0]+"+"+split[1]+" #in_a_day_ranking_table .lit2 td:eq(3)");
             }
         }
@@ -94,30 +95,7 @@ $(document).on("click",'.farm',function(){
     return false;
 
 });
-/*
-$(".farm").click(function(){
-    if(bool === true){
-        outra();
-        tabelaoriginal = $('.membros').html();
-        sort();
-        bool = false;
-        alert(novatable);
-        $('.membros').html(novatable);
-    }else{
-        alert("1");
-        if(bool2 === true){
-            $('.membros').html(tabelaoriginal);
-            bool2 = false;
-        }else{
-            $('.membros').html(novatable);
-            bool2 = true;
-        }
-    }
-    return false;
-});
-*/
 $("#ally_content .vis").addClass("membros");
-
 
 
 
